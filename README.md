@@ -1,4 +1,4 @@
-# JFXOTBS — AI-Powered Airline Operations, Booking & Travel Management Platform
+# OpenTwin Agentic AI Airline Operations, Booking & Travel Management Platform
 
 [![GitHub](https://img.shields.io/badge/GitHub-open--source-blue)](https://github.com/robotics-intelligent-systems/jfxotbs)
 [![Aviation](https://img.shields.io/badge/Aviation-Airline%20Technology-blue)](https://github.com/robotics-intelligent-systems/jfxotbs)
