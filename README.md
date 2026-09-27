@@ -1,4 +1,4 @@
-# OpenTwin Agentic AI Airline Operations, Booking & Travel Management Platform
+# OpenTwin AI Aviation Operations, Travel Management and Rescue Digital Twins
 
 [![GitHub](https://img.shields.io/badge/GitHub-open--source-blue)](https://github.com/robotics-intelligent-systems/jfxotbs)
 [![Aviation](https://img.shields.io/badge/Aviation-Airline%20Technology-blue)](https://github.com/robotics-intelligent-systems/jfxotbs)
@@ -6,7 +6,9 @@
 [![Travel](https://img.shields.io/badge/Travel-Management-green)](https://github.com/robotics-intelligent-systems/jfxotbs)
 [![MBSE](https://img.shields.io/badge/MBSE-CAD%20%7C%20CAM%20%7C%20CAS-orange)](https://github.com/robotics-intelligent-systems/jfxotbs)
 
-> **Open-source AI-powered airline management and travel technology platform integrating airline reservation systems, flight booking, revenue management, operations, crew scheduling, aircraft maintenance, travel APIs, ACARS, airport/hangar management and aviation simulation.**
+> **Open engineering reference architecture for AI-assisted airline operations, booking and travel management, extended with modular hydrogen rescue-aircraft, underground-hangar and floating-airport simulation concepts.**
+
+**Implementation status:** This repository contains an architecture/software catalog and three CAD concept illustrations. Integrations and aircraft/facility capabilities described here are proposed, not a unified operational application or validated engineering design.
 
 ---
 
@@ -33,6 +35,11 @@
 - [AI Aviation Intelligence](#ai-aviation-intelligence)
 - [Business Intelligence](#business-intelligence)
 - [MBSE Integration](#mbse-integration)
+- [CAD Concepts and Rescue Digital Twins](#cad-concepts-and-rescue-digital-twins)
+- [H2-OpenTwin Pegasus VTOL Rescue](#h2-opentwin-pegasus-vtol-rescue)
+- [Modular Underground Hangar](#modular-underground-hangar)
+- [Open Modular Mega Floating Airport](#open-modular-mega-floating-airport)
+- [FOSS Simulation and Digital-Twin Integration](#foss-simulation-and-digital-twin-integration)
 - [Software Dependency Compendium](#software-dependency-compendium)
 - [Aviation Technology Categories](#aviation-technology-categories)
 - [Dependency Classification](#dependency-classification)
@@ -62,7 +69,7 @@
 
 JFXOTBS is an open-source aviation technology and architecture project focused on the integration of **airline reservation, flight booking, airline operations, travel management, revenue management, aircraft maintenance, aviation simulation and Artificial Intelligence**.
 
-The repository currently describes itself as a **Flight Book Management System / Airline Reservation System / Computer Reservation System (CRS)** and as an **AI-Powered Airlines Management Platform**.
+The commercial scope covers a **Flight Book Management System / Airline Reservation System / Computer Reservation System (CRS)**. The engineering scope also connects **H2-OpenTwin Pegasus VTOL Rescue**, a **modular underground hangar** and an **open modular floating airport** to fleet readiness, rescue dispatch, facility scheduling and simulation.
 
 The current technology ecosystem includes projects and reference implementations covering:
 
@@ -150,6 +157,8 @@ The platform should connect commercial, operational and engineering data into a 
 11. Support aviation simulation.
 12. Provide aviation business intelligence.
 13. Integrate MBSE/CAD/CAM/CAS engineering workflows.
+14. Study modular LH2 rescue aircraft and mission payloads through versioned simulation models.
+15. Connect hangar and floating-airport concepts to resource scheduling and engineering evidence.
 
 ## Secondary Objectives
 
@@ -187,68 +196,33 @@ The platform should connect commercial, operational and engineering data into a 
 | BI | Aviation analytics |
 | MBSE | System architecture |
 | CAD/CAM/CAS | Engineering lifecycle |
+| Rescue missions | SAR, Medevac, coast-guard support and humanitarian configuration studies |
+| Hydrogen aircraft | LH2 energy-system and candidate VTOL configuration studies |
+| Infrastructure twins | Underground-hangar and floating-airport models |
 
 ---
 
 # Architecture
 
-The conceptual architecture is:
+The proposed platform connects commercial services and mission operations through shared fleet, resource and evidence services. Flight control remains outside the business platform.
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│                        AVIATION USERS                        │
-│                                                              │
-│ Passengers | Agents | Crew | Dispatchers | Engineers | Mgmt  │
-└─────────────────────────────┬────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                    AVIATION EXPERIENCE                        │
-│                                                              │
-│ Booking | Check-in | Operations | Maintenance | Dashboards   │
-└─────────────────────────────┬────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                    AVIATION APPLICATIONS                      │
-│                                                              │
-│ CRS | Booking | Revenue | Crew | Fleet | Maintenance | BI    │
-└─────────────────────────────┬────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                 WORKFLOW / ORCHESTRATION                      │
-│                                                              │
-│ Saga | BPM | Rules | Events | Scheduling | Transactions       │
-└─────────────────────────────┬────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                       AI LAYER                               │
-│                                                              │
-│ Prediction | Optimization | NLP | Agents | Forecasting        │
-└─────────────────────────────┬────────────────────────────────┘
-                              │
-              ┌───────────────┼────────────────┐
-              ▼               ▼                ▼
-       Operational Data   Engineering Data   External APIs
-              │               │                │
-              └───────────────┼────────────────┘
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                       DATA PLATFORM                           │
-│                                                              │
-│ PostgreSQL | Event Store | Data Warehouse | Object Storage   │
-└─────────────────────────────┬────────────────────────────────┘
-                              │
-                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                SIMULATION / DIGITAL ENGINEERING              │
-│                                                              │
-│ Market Simulation | Flight Simulation | MBSE | CAS | Digital │
-│ Twin                                                              │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    U["Passengers and travel agents"] --> C["Booking, CRS and revenue"]
+    R["Dispatchers and rescue coordinators"] --> O["Flight and mission operations"]
+    C --> W["Workflow and access controls"]
+    O --> W
+    W --> F["Fleet, crew and maintenance"]
+    W --> I["Airport and hangar resources"]
+    F --> D["Operational data and evidence"]
+    I --> D
+    E["CAD and simulation models"] --> D
+    D --> A["Advisory AI and analytics"]
+    A --> H["Human review"]
+    H --> O
 ```
+
+See [CAD Concepts and Rescue Digital Twins](#cad-concepts-and-rescue-digital-twins) for aircraft and infrastructure interfaces.
 
 ---
 
@@ -879,7 +853,7 @@ MBSE
 
 ## CAD
 
-Aircraft and component design.
+Aircraft, component and infrastructure concept design. The current [CAD assets](MBSE/CAD/) are JPG illustrations; editable geometry and analysis models remain roadmap deliverables.
 
 ## CAM
 
@@ -888,6 +862,157 @@ Manufacturing and assembly.
 ## CAS
 
 Simulation, analysis and performance validation.
+
+---
+
+# CAD Concepts and Rescue Digital Twins
+
+The [CAD directory](MBSE/CAD/) contains three concept illustrations reviewed on 27 September 2026. These extend airline operations with aircraft, maintenance-base and offshore-airport studies. They are raster illustrations, not editable CAD assemblies, validated simulation models or approved facilities.
+
+| Concept | Repository asset | Proposed platform connection |
+|---|---|---|
+| H2-OpenTwin Pegasus VTOL Rescue | [Aircraft cutaway](MBSE/CAD/OpenTwin_VTOL_Rescue_LH2_Cutaway_Concept_v1.jpg) | SAR dispatch, mission configuration, energy planning, crew readiness and maintenance |
+| Modular Underground Hangar | [Hangar digital twin](MBSE/CAD/modular-underground-hangar-digital-twin.jpg) | Lift-platform scheduling, storage, maintenance bays and facility monitoring |
+| Open Modular Mega Floating Airport | [Floating-airport concept](MBSE/CAD/open-modular-mega-floating-airport.jpg) | Offshore airport resources, turnaround, maritime access and disruption simulation |
+
+## H2-OpenTwin Pegasus VTOL Rescue
+
+**Modular Hydrogen VTOL Search & Rescue Platform**
+
+The proposed concept combines the Pegasus VBJ-01-inspired rescue airframe with the modular H2-OpenTwin Air LH2 architecture. Intended missions include search and rescue (SAR), medical evacuation (Medevac), coast-guard support and humanitarian logistics. Extended endurance is a design objective requiring a mission energy budget; no range, endurance or payload capability is established by the illustration.
+
+![H2-OpenTwin Pegasus VTOL Rescue concept](MBSE/CAD/OpenTwin_VTOL_Rescue_LH2_Cutaway_Concept_v1.jpg)
+
+**Image interpretation:** the top-view inset identifies four lift fans, while another label says “rear cruise propulsion fans (4x).” This documentation adopts **four wing-integrated lift fans plus one aft electric cruise propulsor** as the candidate configuration for study. The raster image is unchanged. Its “zero emissions,” “no patent lock-in” and centralized-CG labels are not verified environmental, intellectual-property or engineering findings.
+
+### Candidate VTOL configuration
+
+Use one parametric airframe for every view: a broad integrated wing–fuselage layout, four embedded lift-fan ducts in mirrored left/right positions, one aft cruise unit and consistent tail geometry.
+
+| View | Requirement for the next CAD revision |
+|---|---|
+| Top | Show four embedded ducts within the intended wing/body surfaces. Preserve fuselage width, planform and bilateral symmetry; avoid a radial multicopter arrangement. |
+| Front | Preserve span, fuselage section and duct positions. Use cutaway or hidden-line annotations for obscured ducts rather than forcing four visible fan circles into the projection. |
+| Side | Retain cabin, tail and aft propulsion station. Identify embedded ducts with section annotations where needed; distinguish lift and cruise modes without changing the airframe. |
+| Cutaway and mesh | Reuse component IDs, coordinate frames and geometry; keep tank, rescue-bay and propulsion positions consistent. |
+
+The four-fan option is a **trade-study baseline**, not a proven optimum. Compare it with eight lift units using installed mass, power/thrust needs, duct losses, structural integration, acoustics, maintenance and controllability after failures. Fewer units do not by themselves establish lower system mass or sufficient redundancy.
+
+Central LH2 storage is a packaging proposal. Verify the center-of-gravity envelope across fuel depletion, crew positions and mission modules; do not assume the CG coincides with the tank center.
+
+For the fuel-cell-electric baseline, the aft unit is an **electric fan or propeller**. A hydrogen-burning cruise turbine would be a separate variant requiring its own fuel, mass, thermal and emissions models.
+
+### Internal architecture and interfaces
+
+| Module | Proposed content | Required analysis or interface |
+|---|---|---|
+| Sensor suite | Candidate AESA radar, EO/IR, LiDAR, ADS-B, weather sensors and maritime AIS where relevant | Coverage, data quality, timestamps, electrical loads and installation constraints |
+| Mission cockpit | Pilot/co-pilot stations, fly-by-wire interfaces, mission console and twin display | Separate flight-control authority from mission computing and advisory AI |
+| Interchangeable rescue bay | Medical, extraction, optional SAR-drone or humanitarian equipment | Module identity, mass properties, mounting, access and electrical/data services |
+| Cryogenic LH2 storage | Conceptual vacuum-insulated tanks, monitoring and protective functions | Fuel conditioning, heat ingress, usable fuel and safety interfaces |
+| Energy conversion | Fuel-cell stack, buffer battery, power electronics and thermal management | Conditioned hydrogen supply, transients, losses, cooling and reserves |
+| Distributed propulsion | Four lift fans and one aft electric cruise unit | Lift, transition and cruise models with actuator and power limits |
+
+Fuel cells are supplied through hydrogen conditioning; they are not modeled as directly consuming cryogenic liquid. The diagram describes functional energy/information relationships, not compartment order or detailed plumbing.
+
+```mermaid
+flowchart TD
+    H["LH2 storage and conditioning"] --> F["Fuel-cell system"]
+    F --> P["Power distribution"]
+    B["Buffer battery"] <--> P
+    P --> L["Four lift fans"]
+    P --> C["Aft cruise propulsor"]
+    P --> M["Mission and medical loads"]
+    S["Sensors"] --> R["Mission computer"]
+    R --> T["Digital-twin telemetry"]
+    R --> A["Crew decision support"]
+    K["Flight-control system"] --> L
+    K --> C
+```
+
+### Interchangeable mission modules
+
+| Module | Candidate equipment | Configuration boundary |
+|---|---|---|
+| Medevac | Two to four stretchers as a **layout target**, oxygen, patient monitoring and life support | Verify occupied mass, restraint, access, evacuation, power and medical installation before assigning capacity. |
+| Search and rescue | Optional VTOL SAR drones, EO/IR, night lighting and extraction equipment | Model drone deployment and rescue procedures separately, including operating limits. |
+| Coast-guard support | Inflatable rafts, maritime rescue equipment, satellite communications and optional deployable sonar | Define deployment and water-coupling arrangements; generic airborne sensors do not replace underwater equipment. |
+| Humanitarian aid | Medicines, water, food and portable energy | Track restraint, mass/CG, storage conditions and unloading requirements. |
+
+**Drawing vocabulary:** OPEN AVIONICS RESEARCH; DIGITAL TWIN INTERFACE; ROS 2 MISSION COMPUTER; DISTRIBUTED ELECTRIC LIFT FANS; MODULAR RESCUE BAY; CRYOGENIC LH2 STORAGE; FUEL-CELL POWER SYSTEM; BUFFER BATTERY; AFT ELECTRIC CRUISE PROPULSOR; MEDICAL EVACUATION MODULE; OPTIONAL SAR DRONES; OPENMODELICA INTEGRATION.
+
+“Open flight stack” is an implementation direction to evaluate, not an existing certified solution for this crewed aircraft. ROS 2 mission integration and experimental autonomy remain distinct from flight control.
+
+## Modular Underground Hangar
+
+![Modular underground hangar cutaway](MBSE/CAD/modular-underground-hangar-digital-twin.jpg)
+
+The concept places maintenance and storage bays below a surface landing/lift platform, with a control room, access routes, ventilation and an energy subsystem. Its proposed twin combines structural geometry, lift motion, airflow, energy and maintenance operations.
+
+JFXOTBS would represent the platform, bays and equipment as reservable assets with capacity and availability states. Study aircraft clearances, lift loads/interlocks, maintenance access, ventilation, drainage, evacuation and power interruption before treating a layout as usable infrastructure. Suitability for LH2 aircraft and hydrogen servicing requires a separate facility assessment.
+
+## Open Modular Mega Floating Airport
+
+![Modular floating airport and digital mesh](MBSE/CAD/open-modular-mega-floating-airport.jpg)
+
+The concept combines floating structural modules, runway/taxiway surfaces, terminal and apron areas, utilities and maritime access. It is a planning reference for an airport–marine digital twin, not evidence of runway capacity or all-weather operability.
+
+JFXOTBS would link stand/gate scheduling, turnaround, maritime logistics and maintenance availability to simulated environmental constraints. Studies should address wave-induced motion, mooring and module interfaces, structural loads, utility continuity, emergency access and weather-dependent operating windows. Quantitative limits require site-specific models and engineering review.
+
+## FOSS Simulation and Digital-Twin Integration
+
+These are **candidate components**, not installed dependencies or tested integrations. Linked upstream projects provide software references; the assignment of work to each tool is a proposed JFXOTBS design choice.
+
+| Layer | Candidate | Proposed evidence output |
+|---|---|---|
+| Parametric geometry | [FreeCAD](https://github.com/FreeCAD/FreeCAD) | Versioned aircraft/facility geometry, clearances and consistent drawing views |
+| Visualization | Blender | Cutaways and visual assets derived from the approved geometry |
+| Energy and systems | [OpenModelica](https://openmodelica.org/) | Candidate conditioning, fuel-cell, battery and thermal models; evaluate library suitability |
+| Fluid analysis | [OpenFOAM](https://openfoam.org/) | Aircraft/duct flow, hangar ventilation and platform-fluid studies with separately validated setups |
+| Structures | [CalculiX](https://www.dhondt.de/) | Airframe, tank-support, lift and platform load cases |
+| Flight dynamics | [JSBSim](https://jsbsim-team.github.io/jsbsim/) | Aircraft-specific dynamics; transition and fan interactions require validated additional modeling |
+| Mechanisms | [Project Chrono](https://projectchrono.org/) | Hangar-lift and mechanical-system simulation |
+| Mission and sensors | [ROS 2](https://github.com/ros2/ros2), [Gazebo](https://gazebosim.org/) | Simulated streams, mission orchestration and replay through defined adapters |
+| Interactive twin | [Godot via gdext](https://godot-rust.github.io/) | Rust/GDExtension operator views; engineering models determine physics fidelity |
+
+Define units, coordinate frames, timestamps, exchange rates, latency behavior, model versions and failure handling for every integration. Shared geometry alone is not a synchronized digital twin. Until measurement-based calibration and traceable validation exist, outputs remain concept-model or simulation results.
+
+```mermaid
+flowchart TD
+    Q["Requirements and CAD revision"] --> E["Engineering models"]
+    E --> S["Controlled simulation scenarios"]
+    S --> V{"Acceptance criteria met?"}
+    V -->|No| Q
+    V -->|Yes| D["Versioned evidence package"]
+    D --> O["JFXOTBS planning and maintenance"]
+    T["Measured or synthetic telemetry"] --> R["Provenance and replay"]
+    R --> S
+    O --> H["Dispatcher and engineer review"]
+```
+
+### Operational interfaces
+
+| Domain | Proposed extension |
+|---|---|
+| Fleet | Aircraft configuration, installed mission module and readiness |
+| Operations | SAR/Medevac task, dispatch plan, crew qualifications and resource conflicts |
+| Maintenance | Component history, inspection requirements and reviewed anomalies |
+| Airport and hangar | Lift/bay/stand reservations, turnaround and environmental restrictions |
+| Data platform | Configuration IDs, scenario IDs, time-series evidence and provenance |
+| AI and BI | Advisory scenario comparison, readiness summaries and maintenance triage |
+
+SAR tasking is an operational workflow, not a passenger fare or demand-pricing decision. Restrict patient-data access and use synthetic records in demonstrations. AI agents may prepare options but cannot directly command aircraft, release maintenance or authorize dispatch.
+
+### Verification roadmap
+
+1. Establish editable CAD and consistent views; resolve the propulsion-label discrepancy.
+2. Compare four versus eight lift units, cabin layouts, tank packaging and mass/CG envelopes.
+3. Model lift/transition/cruise energy, thermal loads, usable fuel and mission reserves.
+4. Evaluate hangar lift/clearances and floating-airport structural/environmental constraints independently.
+5. Test adapters, time synchronization, degraded sensors, power limitations and aborted missions in reproducible simulations.
+6. Compare outputs with appropriate test data and engineering acceptance criteria before making performance or operational claims.
+
+This catalog establishes no implemented adapters, certified avionics, approved medical capacity, guaranteed endurance or patent clearance.
 
 ---
 
@@ -1052,6 +1177,7 @@ Recommended components:
 | CAD | Aircraft/component design | Engineering |
 | CAM | Manufacturing/assembly | Engineering |
 | CAS | Simulation/analysis | Engineering |
+| FOSS rescue and infrastructure stack | See the [candidate tool matrix](#foss-simulation-and-digital-twin-integration) | Research / Engineering |
 
 ---
 
@@ -1693,7 +1819,7 @@ Recommended AI controls:
 
 # Repository Structure
 
-Recommended target structure:
+Current assets are described in the [CAD catalog](#cad-concepts-and-rescue-digital-twins). The following is a **proposed target structure**, not a list of implemented modules:
 
 ```text
 jfxotbs/
@@ -1701,8 +1827,9 @@ jfxotbs/
 ├── README.md
 │
 ├── MBSE/
+│   ├── CAD/                     # Existing concept illustrations
 │   └── CAS/
-│       └── Drawio/
+│       └── Drawio/              # Proposed simulation diagrams
 │
 ├── docs/
 │   ├── architecture/
@@ -1876,6 +2003,10 @@ Recommended tools:
 - [ ] Network simulation
 - [ ] Disruption simulation
 - [ ] Digital twin
+- [ ] Pegasus four-lift-fan and aft-electric-propulsor geometry baseline
+- [ ] LH2 energy, payload and VTOL configuration trade studies
+- [ ] Underground-hangar and floating-airport simulation models
+- [ ] Mission/facility adapters with versioned validation evidence
 
 ## Phase 7 — Enterprise Aviation Platform
 
@@ -2109,7 +2240,7 @@ Security Status
 Test Status
 ```
 
-This is particularly important for JFXOTBS because its current README contains a **large ecosystem of external projects**, not a conventional package dependency list. The repository currently contains only 11 README lines / 7 lines of actual content, so the expanded document intentionally separates the **technology catalog** from the future executable dependency graph.
+This is particularly important for JFXOTBS because its current README contains a **large ecosystem of external projects**, not a conventional package dependency list. The **technology catalog** must remain separate from the future executable dependency graph; a listed tool is not an installed or tested dependency.
 
 ---
 
