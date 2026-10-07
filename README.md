@@ -8,12 +8,14 @@
 
 > **Open engineering reference architecture for AI-assisted airline operations, booking and travel management, extended with modular hydrogen rescue-aircraft, underground-hangar and floating-airport simulation concepts.**
 
-**Implementation status:** This repository contains an architecture/software catalog and three CAD concept illustrations. Integrations and aircraft/facility capabilities described here are proposed, not a unified operational application or validated engineering design.
+**Implementation status:** This repository contains an architecture/software catalog and four CAD concept illustrations. Integrations and aircraft/facility capabilities described here are proposed, not a unified operational application or validated engineering design.
 
 ---
 
 ## Table of Contents
 
+- [Documentation Index](docs/README.md)
+- [Modular GCS Drone Trailer](docs/architecture/modular-gcs-drone-trailer.md)
 - [Description and Context](#description-and-context)
 - [Vision](#vision)
 - [Objectives](#objectives)
@@ -867,13 +869,16 @@ Simulation, analysis and performance validation.
 
 # CAD Concepts and Rescue Digital Twins
 
-The [CAD directory](MBSE/CAD/) contains three concept illustrations reviewed on 27 September 2026. These extend airline operations with aircraft, maintenance-base and offshore-airport studies. They are raster illustrations, not editable CAD assemblies, validated simulation models or approved facilities.
+The [CAD directory](MBSE/CAD/) contains four concept illustrations, with the GCS trailer added to this catalog on 7 October 2026. These extend airline operations with aircraft, maintenance-base, offshore-airport and mobile ground-station studies. They are raster illustrations, not editable CAD assemblies, validated simulation models or approved facilities.
 
 | Concept | Repository asset | Proposed platform connection |
 |---|---|---|
 | H2-OpenTwin Pegasus VTOL Rescue | [Aircraft cutaway](MBSE/CAD/OpenTwin_VTOL_Rescue_LH2_Cutaway_Concept_v1.jpg) | SAR dispatch, mission configuration, energy planning, crew readiness and maintenance |
 | Modular Underground Hangar | [Hangar digital twin](MBSE/CAD/modular-underground-hangar-digital-twin.jpg) | Lift-platform scheduling, storage, maintenance bays and facility monitoring |
 | Open Modular Mega Floating Airport | [Floating-airport concept](MBSE/CAD/open-modular-mega-floating-airport.jpg) | Offshore airport resources, turnaround, maritime access and disruption simulation |
+| Modular GCS Drone Trailer | [Physical/virtual simulation concept](MBSE/CAD/jfxotbs-modular-gcs-trailer-digital-twin-simulation-concept-v1.jpg) | Equipment readiness, communications and energy monitoring, maintenance and scenario comparison |
+
+The [GCS architecture note](docs/architecture/modular-gcs-drone-trailer.md) structures the additional English source, preserves its unverified capability claims and connects the illustration to four proposed simulation scenarios. See the [documentation index](docs/README.md) and [migration register](docs/MIGRATION-REGISTER.md) for provenance.
 
 ## H2-OpenTwin Pegasus VTOL Rescue
 
@@ -1819,7 +1824,7 @@ Recommended AI controls:
 
 # Repository Structure
 
-Current assets are described in the [CAD catalog](#cad-concepts-and-rescue-digital-twins). The following is a **proposed target structure**, not a list of implemented modules:
+Current assets are described in the [CAD catalog](#cad-concepts-and-rescue-digital-twins). The existing [documentation index](docs/README.md) lists migrated source notes and their provenance. The following is a **proposed target structure**, not a list of implemented modules:
 
 ```text
 jfxotbs/
