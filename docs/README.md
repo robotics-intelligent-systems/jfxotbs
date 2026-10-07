@@ -8,6 +8,12 @@ JFXOTBS documentation separates source concepts, proposed integration and verifi
 | --- | --- | --- |
 | [Open-architecture modular GCS drone trailer](architecture/modular-gcs-drone-trailer.md) | Modular stations, communications, antenna infrastructure, power and connection to the digital-twin illustration | English source structured; capabilities and simulation scenarios remain unverified proposals |
 
+## Pilot training and accreditation
+
+| Document | Scope | Status |
+| --- | --- | --- |
+| [Peru RPAS pilot accreditation](training/peru-rpas-pilot-accreditation.md) | Regulatory context, six-question practice quiz, supplied answer key and four source requirement statements | Translated from Spanish; unofficial study draft with separate editorial verification notes |
+
 ## Related visual assets
 
 - [GCS trailer physical/virtual simulation concept](../MBSE/CAD/jfxotbs-modular-gcs-trailer-digital-twin-simulation-concept-v1.jpg)
@@ -17,6 +23,6 @@ Images are concept illustrations, not executable models or measured simulation r
 
 ## Source migration
 
-[Migration register](MIGRATION-REGISTER.md): **1 plaintext source processed**. This source was already in English; no translation was needed. Original text is preserved in Git history.
+[Migration register](MIGRATION-REGISTER.md): **2 plaintext sources processed**. The GCS source was already in English; the RPAS source was translated from Spanish. Original texts are preserved in Git history.
 
 Use descriptive English Markdown filenames under thematic directories. Record source provenance, preserve coverage and distinguish inherited claims from editorial additions.

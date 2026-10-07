@@ -16,6 +16,7 @@
 
 - [Documentation Index](docs/README.md)
 - [Modular GCS Drone Trailer](docs/architecture/modular-gcs-drone-trailer.md)
+- [Peru RPAS Pilot Accreditation](docs/training/peru-rpas-pilot-accreditation.md)
 - [Description and Context](#description-and-context)
 - [Vision](#vision)
 - [Objectives](#objectives)
